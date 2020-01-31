@@ -78,7 +78,7 @@ def add_category(request):
             print(cat, cat.slug)
             # Now that the category is saved, we could confirm this.
             # For now, just redirect the user back to the index view.
-            return redirect('/rango/')
+            return redirect(reverse('rango:index'))
         else:
             # The supplied form contained errors -
             # just print them to the terminal.
