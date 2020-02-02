@@ -27,9 +27,11 @@ SECRET_KEY = '3yti+-q)ca0-os-zx$pl==)m4kjx7!lk7@2#1(z@je*_raekhm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*', ]
 
 # Application definition
+
+LOGIN_URL = 'rango:login'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -72,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -83,6 +84,10 @@ DATABASES = {
     }
 }
 
+PASSWORD_HASHERS = ['django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+                    'django.contrib.auth.hashers.BCryptPasswordHasher',
+                    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+                    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher']
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -102,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -116,7 +120,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -125,4 +128,3 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = MEDIA_DIR
-
