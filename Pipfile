@@ -10,6 +10,7 @@ django = ">=2.2.10"
 pillow = "*"
 bcrypt = "*"
 django-registration-redux = "*"
+django-hamlpy = "*"
 
 [requires]
 python_version = "3.7"

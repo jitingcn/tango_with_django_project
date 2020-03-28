@@ -60,8 +60,13 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATE_DIR, ],
-        'APP_DIRS': True,
         'OPTIONS': {
+            'loaders': [
+                ('django.template.loaders.cached.Loader', (
+                    'hamlpy.template.loaders.HamlPyFilesystemLoader',
+                    'hamlpy.template.loaders.HamlPyAppDirectoriesLoader',
+                )),
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
